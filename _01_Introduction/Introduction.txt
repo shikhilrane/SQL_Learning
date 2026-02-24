@@ -1,0 +1,59 @@
+DataBase : 
+    1. DataBase is a collection of data in a format that can be easily accessed. (Search, add, update, delete).
+
+    2. DataBase can be computer 
+
+    3. Software application that use to manage DB is called DataBase Management System.
+
+                                                    user ------> DBMS ------> DB
+                                                                ^
+                                                                |
+                                                                |
+                                                                |
+                                                            (SQL used here) 
+                                                1. User sends request using SQL
+                                                2. DBMS processes the request
+                                                3. DBMS updates the Database
+                                                4. DBMS returns result to the User
+
+    4. Types of DataBases : 
+        A. Relational DataBase (we use SQL to work with Relational DataBase (RDBMS)) :
+            Data Stored in table
+            RDBMS Softwares : MySQL, Oracle DataBase server, Microsoft SQL server, PostgreSQL
+            In RDBMS, data stored in 'table' form in following way :
+                Students
+                    id	    name	    age	    course
+                    1	    Rohan	    20	    B.Tech
+                    2	    Shreya	    21	    B.Sc.
+                    3	    Aarav	    22	    MBA
+                Columns: id, name, age, course
+                Row 1: Student with id 1, name Rohan, age 20, enrolled in B.Tech
+                NOTE : id is usually a Primary Key (unique & not null)
+        B. Non-Relational DataBase (NoSQL) :
+            Data Stored not in tables
+            Non-Relational DBMS Softwares : MongoDB
+                                                    Databases
+                                                    │
+                                                    ├── Relational Databases (RDBMS)
+                                                    │     ├── Data stored in tables
+                                                    │     ├── Uses SQL
+                                                    │     └── Examples:
+                                                    │           • MySQL
+                                                    │           • Oracle Database
+                                                    │           • Microsoft SQL Server
+                                                    │           • PostgreSQL
+                                                    │
+                                                    └── Non-Relational Databases (NoSQL)
+                                                        ├── Data not stored in tables
+                                                        └── Examples:
+                                                                • MongoDB
+
+SQL :
+    1. Structured Query Language is used to a language used to interact with Relational Databases
+    2. There are many Relational Database Management Systems (RDBMS) such as MySQL, PostgreSQL, Oracle, MS Access, etc., which use SQL.
+    3. SQL is used to store, retrieve, update, and manage data in these RDBMS.
+    4. We can perform CRUD operations using SQL:
+           Create → INSERT
+           Read → SELECT
+           Update → UPDATE
+           Delete → DELETE
