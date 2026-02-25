@@ -1,0 +1,6 @@
+Types of SQL Commands : 
+    1. DDL (Data Definition Language) : Create, alter, rename, truncate and drop (we saw create and drop, and other commands we will see this later)
+    2. DQL (Data Query Language) : select (to see data inside of table, we will see this next later chapters)
+    3. DML (Data Manipulation Language) :   , insert, update and delete (to perform operations on row)
+    4. DCL (Data Control Language) : grant and revoke permission to user (it defined access)
+    5. TCL (Transaction Control Language) : start transaction, commit, rollback

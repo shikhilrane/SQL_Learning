@@ -1,0 +1,9 @@
+CREATE DATABASE db_name;
+CREATE DATABASE IF NOT EXISTS db_name;      (if already created then dont recreate this DB)
+
+DROP DATABASE db_name;
+DROP DATABASE IF NOT EXISTS db_name;        (if given db is not there then this command will give warning)
+
+SHOW DATABASES;                             (Use to see all the dbs)
+
+SHOW TABLES;                                (Use to see tables in db that we are using)

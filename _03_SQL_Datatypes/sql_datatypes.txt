@@ -1,0 +1,43 @@
+
+SQL Data Types (with MySQL Specific Types)
+==========================================
+
+Category           | Data Type                  | Description / Range                                                    | Usage Example
+-------------------|----------------------------|-------------------------------------------------------------------|------------------------------------
+Numeric            | TINYINT                    | 1 byte, range: -128 to 127 (signed), 0 to 255 (unsigned)              | Boolean flags, Small counters
+                   | SMALLINT                   | 2 bytes, range: -32,768 to 32,767 (signed), 0 to 65,535 (unsigned)    | Age, Quantity
+                   | MEDIUMINT                  | 3 bytes, range: -8,388,608 to 8,388,607 (signed), 0 to 16,777,215     | IDs, Medium ranges
+                   | INT / INTEGER              | 4 bytes, range: -2,147,483,648 to 2,147,483,647 (signed)              | Student ID, Employee Number
+                   | BIGINT                     | 8 bytes, range: ±9 quintillion (signed), 0 to 18 quintillion          | Bank account numbers, Large counts
+                   | DECIMAL(p,s) / NUMERIC     | Fixed precision and scale (exact values)                              | Salary, Price, Money
+                   | FLOAT / REAL               | Approximate floating-point numbers                                    | Scientific data, Measurements
+                   | DOUBLE PRECISION           | Higher precision floating-point numbers                               | Complex financial calculations
+
+Character/String   | CHAR(n)                    | Fixed-length string (pads with spaces if shorter)                     | Gender (M/F), Codes
+                   | VARCHAR(n)                 | Variable-length string up to n characters                             | Names, Emails
+                   | TEXT                       | Large text data                                                       | Descriptions, Comments
+
+Date & Time        | DATE                       | Calendar date (YYYY-MM-DD)                                            | Birthdate, Join date
+                   | TIME                       | Time of day (HH:MM:SS)                                                | Check-in, Check-out times
+                   | DATETIME / TIMESTAMP       | Stores both date and time (YYYY-MM-DD HH:MM:SS)                       | Transaction logs, Events
+                   | YEAR                       | Year only (YYYY)                                                      | Year of manufacture
+
+Boolean & Binary   | BOOLEAN / BOOL             | Stores TRUE or FALSE (in MySQL = TINYINT(1))                          | Active/Inactive status, Flags
+                   | BIT(n)                     | Stores n bits (up to 64 bits)                                         | Yes/No values, Permissions
+                   | BLOB (Binary Large Object) | Large binary data (images, files, audio, video)                       | Profile pictures, Documents
+
+
+
+
+
+Signed and Unsigned for Numeric- 
+TINYINT(-128 tp 127) = can Store numbers from -128 to 127 numbers
+TINYINT UNSIGNED (0 to 255) = can store numbers from 0 to 255, range of negative numbers changed to positive numbers
+
+|   Data Type   |   Bytes   |   Signed Range                                          |   Unsigned Range                |
+| ------------- | --------- | ------------------------------------------------------- | ------------------------------- |
+| `TINYINT`     | 1         | −128 to 127                                             | 0 to 255                        |
+| `SMALLINT`    | 2         | −32,768 to 32,767                                       | 0 to 65,535                     |
+| `MEDIUMINT`   | 3         | −8,388,608 to 8,388,607                                 | 0 to 16,777,215                 |
+| `INT`         | 4         | −2,147,483,648 to 2,147,483,647                         | 0 to 4,294,967,295              |
+| `BIGINT`      | 8         | −9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | 0 to 18,446,744,073,709,551,615 |

@@ -1,0 +1,65 @@
+1.  Creating DataBase (Use to create DataBase) :
+        CREATE DATABASE db_name;
+        e.g. - CREATE DATABASE temp1;
+        e.g. - CREATE DATABASE temp2;
+
+2.  Deleting DataBase (Use to delete DataBase) :
+        DROP DATABASE db_name;
+        e.g. - DROP DATABASE temp2;
+
+Creating a Table in DataBase :
+3.  Use DataBase (whatever operations we perform that will be on given DataBase) :
+        USE db_name;
+        e.g. - USE temp1;
+
+4.  Creating a column in table :
+    CREATE TABLE table_name(
+        column_name1 datatype constraint,   (name of the column, type of data, condition) (we will see datatype and constraint in next chapter)
+        column_name2 datatype constraint,
+        column_name3 datatype constraint
+    );
+    e.g. -  CREATE TABLE adminPanel(
+                id INT PRIMARY KEY,
+                name VARCHAR(50),
+                age INT NOT NULL
+            );
+
+5. Adding Row in Table :
+    INSERT INTO adminPanel VALUES (
+        1, "Shikhil", 29
+    );
+
+6. Show table :
+    SELECT * FROM adminPanel;
+
+7. Delete Table :
+    CREATE TABLE management(
+    	id INT PRIMARY KEY,
+        name VARCHAR(50),
+        age INT NOT NULL
+    );
+
+    DROP TABLE management;
+
+COMMANDS :
+    1. Create Table = CREATE DATABASE db_name;
+    2. Delete Table = DROP DATABASE db_name;
+    3. Use database = USE db_name;
+    4. Create Table = CREATE TABLE table_name();
+    5. INSERT INTO adminPanel VALUES ();
+    6. SELECT * FROM adminPanel;
+    7. Delete Table = DROP TABLE management;
+
+
+SUMMARISED :
+    1. CREATE DATABASE db_name;
+    2. USE db_name;
+    3. CREATE TABLE table_name(
+           column_name1 datatype constraint,
+           column_name2 datatype constraint,
+           column_name3 datatype constraint
+       );
+    4. INSERT INTO student VALUES (
+       	1, "Shikhil", 29
+       );
+    5. SELECT * FROM table_name;
