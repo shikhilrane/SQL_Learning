@@ -1,0 +1,34 @@
+Use to define Schema(design) of table -
+
+-------------------------------------------------- Creating Table ------------------------------------------------------------------
+1. Creating a table - 
+    CREATE TABLE table_name (
+        column_name1 datatype constraint,
+        column_name2 datatype constraint
+    )
+    e.g.    CREATE TABLE student(
+                id INT PRIMARY KEY,
+                name VARCHAR(50)
+            );
+PRIMARY KEY = can't be null and always unique
+
+-------------------------------------------------- Deleting Table ------------------------------------------------------------------
+2. Deleting a table - 
+    DROP TABLE table_name;
+
+-------------------------------------------------- Viewing Table ------------------------------------------------------------------
+3. Select and view all columns
+    SELECT * FROM table_name;
+
+-------------------------------------------------- Insert data in Table ------------------------------------------------------------------
+4. Inserting Data in table - 
+    INSERT INTO table_name;
+    (colname1, colname2)
+    VALUES
+    (col1_v1, col2_v1),
+    (col1_v2, col2_v2);
+    e.g. INSERT INTO student
+         (rollno, name)
+         VALUES
+         (101, "ABC"),
+         (102, "XYZ");
