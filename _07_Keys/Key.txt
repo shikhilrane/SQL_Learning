@@ -1,0 +1,23 @@
+Keys : 
+    There are 2 types of keys 
+        1. Primary key -> It is a column in table that uniquely identifies each row (a unique id)
+                          There's only one PK and it should not be NULL
+                          e.g. Table
+                           id   city_name
+                           1    Pune
+                           2    Mumbai
+                           3    Delhi
+                            here, id is the primary key
+
+        2. Foreign Key -> It is a column in table that refers to Primary Key of another table in current table
+                          There can be multiple FKs,
+                          FKs can have duplicate and null values
+                          e.g. table.
+                Table 1 :                       Table 2 : 
+                id   city_name          id      name    cityid      city
+                1    Pune               1       karan   1           Pune
+                2    Mumbai             2       arjun   2           Mumbai
+                3    Delhi              3       ram     1           Pune
+                                        4       shyan   3           Delhi
+            here in table 1, id = PK
+                 in table 2, id = PK and cityid = FK
