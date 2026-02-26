@@ -88,3 +88,19 @@ VALUES
         SELECT grade, city, COUNT(name)
         FROM students
         GROUP BY grade, city;
+
+
+-- 6. HAVING Clause
+    SELECT city, COUNT(rollnumber)
+    FROM students
+    GROUP BY city
+    HAVING MAX(marks)>90;
+
+
+-- 7. General Order
+    SELECT city
+    FROM students
+    WHERE grade = "A"
+    GROUP BY city
+    HAVING MAX(marks)>80
+    ORDER BY city ASC;
