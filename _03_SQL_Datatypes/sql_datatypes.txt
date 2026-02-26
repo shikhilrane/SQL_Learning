@@ -28,6 +28,32 @@ Boolean & Binary   | BOOLEAN / BOOL             | Stores TRUE or FALSE (in MySQL
 
 
 
+-- Important MySQL Data Types (One-Line Definitions)
+    1. INT → Stores whole numbers (e.g., id, age).
+    2. BIGINT → Stores very large whole numbers.
+    3. DECIMAL(p,s) → Stores exact decimal numbers, ideal for money values.
+    4. VARCHAR(n) → Stores variable-length strings up to n characters.
+    5. CHAR(n) → Stores fixed-length strings of n characters.
+    6. TEXT → Stores large text data.
+    7. DATE → Stores date values in YYYY-MM-DD format.
+    8. DATETIME → Stores both date and time.
+    9. TIMESTAMP → Stores date and time with automatic update capability.
+   10. BOOLEAN → Stores TRUE or FALSE values.
+
+-- Most Important MySQL Data Types (Example)
+    CREATE TABLE important_datatypes_demo (
+        id INT,
+        big_number BIGINT,
+        salary DECIMAL(10,2),
+        name VARCHAR(100),
+        gender CHAR(1),
+        description TEXT,
+        birth_date DATE,
+        created_at DATETIME,
+        updated_at TIMESTAMP,
+        is_active BOOLEAN
+    );
+
 
 
 Signed and Unsigned for Numeric- 
@@ -41,3 +67,5 @@ TINYINT UNSIGNED (0 to 255) = can store numbers from 0 to 255, range of negative
 | `MEDIUMINT`   | 3         | −8,388,608 to 8,388,607                                 | 0 to 16,777,215                 |
 | `INT`         | 4         | −2,147,483,648 to 2,147,483,647                         | 0 to 4,294,967,295              |
 | `BIGINT`      | 8         | −9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | 0 to 18,446,744,073,709,551,615 |
+
+Example : age TINYINT UNSIGNED
