@@ -1,18 +1,23 @@
-1.  Creating DataBase (Use to create DataBase) :
+------------------------------------ Creation, Deletion of Database and Use it ------------------------------------
+1. Creating DataBase (Use to create DataBase) :
         CREATE DATABASE db_name;
         e.g. - CREATE DATABASE temp1;
         e.g. - CREATE DATABASE temp2;
 
-2.  Deleting DataBase (Use to delete DataBase) :
+2. Deleting DataBase (Use to delete DataBase) :
         DROP DATABASE db_name;
         e.g. - DROP DATABASE temp2;
 
-Creating a Table in DataBase :
 3.  Use DataBase (whatever operations we perform that will be on given DataBase) :
         USE db_name;
         e.g. - USE temp1;
 
-4.  Creating a column in table :
+4. Use to see all Databases
+        SHOW DATABASES;
+
+------------------------------------ Creating a Table in DataBase ------------------------------------
+
+5.  Creating a column in table :
     CREATE TABLE table_name(
         column_name1 datatype constraint,   (name of the column, type of data, condition) (we will see datatype and constraint in next chapter)
         column_name2 datatype constraint,
@@ -24,7 +29,7 @@ Creating a Table in DataBase :
                 age INT NOT NULL
             );
 
-5. Adding Row in Table :
+6. Adding Row in Table :
     INSERT INTO adminPanel VALUES (
         1, "Shikhil", 29
     );
