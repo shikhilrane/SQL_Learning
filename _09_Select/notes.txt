@@ -1,0 +1,129 @@
+--------------------------------------------------- Table for SELECT Operation ---------------------------------------------------
+CREATE DATABASE myCollege;
+USE myCollege;
+
+CREATE TABLE students (
+    rollnumber INT PRIMARY KEY,
+    name VARCHAR(100),
+    marks INT NOT NULL,
+    grade VARCHAR(1),
+    city VARCHAR(100)
+);
+
+INSERT INTO students 
+(rollnumber, name, marks, grade, city) 
+VALUES
+(101, 'Alice', 85, 'A', 'Mumbai'),
+(102, 'Bob', 72, 'B', 'Delhi'),
+(103, 'Charlie', 90, 'A', 'Pune'),
+(104, 'Diana', 66, 'C', 'Bangalore'),
+(105, 'Ethan', 78, 'B', 'Hyderabad'),
+(106, 'Fatima', 95, 'A', 'Chennai');
+
+
+SELECT : 
+    It is use to select any data from DB
+
+    1. Basic Syntax :
+        1.1 SELECT col1, col2 FROM table_name;      // Use to select specific columns
+            e.g. SELECT name, marks FROM students;
+
+        1.2 SELECT * FROM table_name;               // Use to select all columns
+            e.g. SELECT * FROM students;
+
+        1.3 SELECT DISTINCT grade FROM table_name;  // It will show distinct values (repeating values will be excluded)
+            e.g. SELECT DISTINCT grade FROM students;
+
+    2. WHERE clause :
+        2.0 SELECT * FROM table_name WHERE condition;
+            e.g. SELECT * FROM students WHERE marks>80;
+            e.g. SELECT * FROM students WHERE city="Mumbai";
+
+        2.1 AND Operator :
+            SELECT * FROM table_name WHERE condition1 AND condition2;
+            e.g. SELECT * FROM students WHERE marks>80 AND city="Mumbai";
+
+        2.2 OR Operator :
+            SELECT * FROM table_name WHERE condition1 OR condition2;
+            e.g. SELECT * FROM students WHERE marks>80 OR city="Mumbai";
+
+        2.3 BETWEEN Operator : (Select for given range)
+            SELECT * FROM table_name WHERE column BETWEEN condition1 AND condition2;
+            e.g. SELECT * FROM students WHERE marks BETWEEN 70 AND 80;
+
+        2.4 IN Operator : (Matches any value in the list)
+            SELECT * FROM table_name WHERE column IN (condition/s);
+            e.g. SELECT * FROM students WHERE city IN ("Mumbai", "Delhi");
+
+        2.5 NOT Operator : (to negate the given condition)
+            SELECT * FROM table_name WHERE column NOT IN (condition/s);
+            e.g. SELECT * FROM students WHERE city NOT IN ("Mumbai", "Delhi");
+
+    3. LIMIT clause : (Sets an upper limit on number of rows to be returned)
+            SELECT * FROM table_name LIMIT limit_number;
+            e.g. SELECT * FROM students LIMIT 3;
+
+    4. ORDER BY clause : (Use to select column data in Ascending or descending order)
+            SELECT * FROM table_name ORDER BY column/s ASC/DESC;
+            e.g. SELECT * FROM students ORDER BY city ASC;
+
+    Aggregate Functions : (It performs a calculation on a set of values and return a single value)
+        1. COUNT()
+        2. MAX()
+        3. MIN()
+        4. SUM()
+        5. AVG()
+        e.g. SELECT MAX(column) FROM students;
+
+    5. GROUP BY clause : Groups rows that have same values into summary rows. It collects data from multiple records and Groups the result by one or more column.
+        *Generally we use GROUP BY with Aggregate Functions*
+        SELECT column, aggregate_function(column) FROM table_name GROUP BY column;
+        e.g.1. SELECT grade, COUNT(name) FROM students GROUP BY grade;     // group people of table according to grade
+        e.g.2. SELECT city, avg(marks) FROM students GROUP BY city;        // return avg marks from every city
+        e.g.3. SELECT grade,rollnumber, COUNT(name) FROM students GROUP BY grade,rollnumber;     // group people of table according to grade and rollnumber
+
+    Q1. Arrange avg marks from each city in descending order
+    SELECT city, avg(marks) FROM students GROUP BY city ORDER BY avg(marks) DESC;
+
+    02. Sort the following table according to payment method
+            CREATE TABLE Payment(
+                customer_id INT PRIMARY KEY NOT NULL,
+                name VARCHAR(50) NOT NULL,
+                mode VARCHAR(70),
+                city VARCHAR(20)
+            );
+
+            INSERT INTO Payment 
+            (customer_id, name, mode, city) 
+            VALUES
+            (101, 'A', 'Netbanking', 'Portland'),
+            (102, 'B', 'Credit Card', 'Miami'),
+            (103, 'C', 'Credit Card', 'Seattle'),
+            (104, 'D', 'Netbanking', 'Denver'),
+            (105, 'E', 'Credit Card', 'NewYork'),
+            (106, 'F', 'Debit Card', 'Minneapolis'),
+            (107, 'G', 'Debit Card', 'Phoenix'),
+            (108, 'H', 'Netbanking', 'Boston'),
+            (109, 'I', 'Netbanking', 'Nashville'),
+            (110, 'J', 'Credit Card', 'Boston');
+
+            SELECT * FROM Payment;
+
+            SELECT mode, COUNT(name) FROM Payment GROUP BY mode;
+
+    6. HAVING Clause : Similar to WHERE i.e. applies some conditions on row.
+                    Used when we want to apply any condition after grouping.
+
+                    Count number if students in each city where max marks cross 90.
+                    SELECT COUNT(name), city FROM students GROUP BY city HAVING MAX(marks>90);
+
+
+
+
+    General order of Clauses to use : 
+        SELECT column(s)
+        FROM table_name
+        WHERE condition (applies condition on row)
+        GROUP BY column(s)
+        HAVING condition (applies condition on column)
+        ORDER BY column(s) ASC/DESC
