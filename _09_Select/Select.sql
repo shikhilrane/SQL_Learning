@@ -68,19 +68,23 @@ VALUES
         SELECT AVG(marks) FROM students;
 
 -- 5. GROUP BY clause
-    -- 1. Group by grade
+    -- 1. Group by city
+        SELECT city, COUNT(marks)
+        FROM students
+        GROUP BY city;
+    -- 2. Group by grade
         SELECT grade, COUNT(name)
         FROM students
         GROUP BY grade;
-    -- 2. Average marks city-wise
+    -- 3. Average marks city-wise
         SELECT city, AVG(marks)
         FROM students
         GROUP BY city;
-    -- 3. Maximum marks grade-wise
+    -- 4. Maximum marks grade-wise
         SELECT grade, MAX(marks)
         FROM students
         GROUP BY grade;
-    -- 4. Group by grade and city
+    -- 5. Group by grade and city
         SELECT grade, city, COUNT(name)
         FROM students
         GROUP BY grade, city;
