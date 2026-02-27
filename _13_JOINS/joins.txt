@@ -1,0 +1,88 @@
+JOINS :
+    1. JOIN is used to combine rows from two or more tables, based on a related column between them
+    2. If there are two tables like employee and salary,
+        Table 1 :
+            +-----+--------+
+            | id  | name   |
+            +-----+--------+
+            | 101 | Alice  |
+            | 102 | Bob    |
+            +-----+--------+
+        Table 2 :
+            +-----+--------+
+            | id  | salary |
+            +-----+--------+
+            | 102 | 50000  |
+            | 103 | 60000  |
+            +-----+--------+
+        If we perform an INNER JOIN on the id column,
+        only the common id present in both tables will appear.
+        In this case, only id = 102 exists in both tables.
+        Result :
+            +-----+------+--------+
+            | id  | name | salary |
+            +-----+------+--------+
+            | 102 | Bob  | 50000  |
+            +-----+------+--------+
+    3. FK is not compulsory in JOIN
+    4. Types of Joins :
+        A. Inner Join - Returns only the rows that have matching values in both tables.
+                        Example : 102 Bob 50000
+        B. Outer Join -
+            a. Left Join - Returns all rows from the left table and the matching rows from the right table (non-matching right rows become NULL).
+                           Example : 101 Alice  NULL
+                                     102 Bob    50000
+            b. Right Join - Returns all rows from the right table and the matching rows from the left table (non-matching left rows become NULL).
+                            Example : 102 Bob    50000
+                                      103 NULL   60000
+            c. Full Join - Returns all rows from both tables, matching where possible, and NULL where there is no match.
+                            Example : 101 Alice  NULL
+                                      102 Bob    50000
+                                      103 NULL   60000
+
+
+
+
+A. Inner Join :
+    SELECT column(s)
+    FROM tableA
+    INNER JOIN tableB
+    ON tableA.col_name = tableB.col_name;
+
+    Example :
+        SELECT *
+        FROM student
+        INNER JOIN course
+        ON student.student_id = course.student_id
+
+        -------------------- Student Table --------------------
+
+                        +------------+--------+
+                        | student_id | name   |
+                        +------------+--------+
+                        | 101        | adam   |
+                        | 102        | bob    |
+                        | 103        | casey  |
+                        +------------+--------+
+
+
+        -------------------- Course Table ---------------------
+
+                    +------------+------------------+
+                    | student_id | course           |
+                    +------------+------------------+
+                    | 102        | english          |
+                    | 105        | math             |
+                    | 103        | science          |
+                    | 107        | computer science |
+                    +------------+------------------+
+
+
+        -------------------- Result (INNER JOIN) --------------------
+
+                    +------------+--------+---------+
+                    | student_id | name   | course  |
+                    +------------+--------+---------+
+                    | 102        | bob    | english |
+                    | 103        | casey  | science |
+                    +------------+--------+---------+
