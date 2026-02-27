@@ -1,0 +1,43 @@
+--------------------------------------------------- Table for Operation ---------------------------------------------------
+CREATE DATABASE myCollege;
+USE myCollege;
+
+CREATE TABLE students (
+    rollnumber INT PRIMARY KEY,
+    name VARCHAR(100),
+    marks INT NOT NULL,
+    grade VARCHAR(1),
+    city VARCHAR(100)
+);
+
+INSERT INTO students 
+(rollnumber, name, marks, grade, city) 
+VALUES
+(101, 'Alice', 85, 'A', 'Mumbai'),
+(102, 'Bob', 72, 'B', 'Delhi'),
+(103, 'Charlie', 90, 'A', 'Pune'),
+(104, 'Diana', 66, 'C', 'Bangalore'),
+(105, 'Ethan', 78, 'B', 'Hyderabad'),
+(106, 'Fatima', 95, 'A', 'Chennai');
+
+
+--------------------------------------------------- Manipulation Operation ---------------------------------------------------
+1. Update : To update existing row
+    UPDATE table_name 
+    SET col1 = val1, col2 = val2
+    WHERE condition;
+
+    UPDATE students
+    SET grade = "O"
+    WHERE grade = "A";
+
+
+2. DELETE : To delete in existing rows
+    DELETE FROM table_name
+    WHERE condition;
+
+    DELETE FROM students
+    WHERE marks < 70;
+
+
+3.
