@@ -1,0 +1,25 @@
+--------------------------------------------------- Table Manipulation Operations ---------------------------------------------------
+
+ALTER : Alter is used to change the schema of the table like add column, remove column and rename the table.
+
+    1. ADD COLUMN : Use to add column in existing table
+        ALTER TABLE table_name
+        ADD COLUMN column_name datatype constraints;
+
+    2. MODIFY COLUMN : Use to modify column's datatype and constraint
+        ALTER TABLE table_name
+        MODIFY COLUMN col_name new_datatype new_constraint;
+
+    3. CHANGE COLUMN : Use to change column name, datatype and constraint
+        ALTER TABLE table_name
+        CHANGE COLUMN old_name new_name new_datatype new_constraint;
+
+    DIFFERENCE BETWEEN CHANGE AND MODIFY : MODIFY COLUMN changes a column’s data type, while CHANGE COLUMN renames the column and can also change its data type.
+
+    4. DROP COLUMN : Use to remove column from existing table
+        ALTER TABLE table_name
+        DROP COLUMN column_name;
+
+    5. RENAME TO : Use to rename, name of existing table
+        ALTER TABLE table_name
+        RENAME TO new_table_name;
