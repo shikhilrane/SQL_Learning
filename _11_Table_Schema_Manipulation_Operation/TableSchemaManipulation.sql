@@ -22,6 +22,7 @@ VALUES
 SELECT * FROM schema_table;
 
 --------------------------------- Schema manipulation operations starts here ---------------------------------
+-- ALTER
 -- 1. ADD COLUMN :
     ALTER TABLE schema_table
     ADD COLUMN age INT NOT NULL DEFAULT 18;
@@ -76,3 +77,9 @@ SELECT * FROM schema_table;
     RENAME TO new_manipulation_table;
 
 SELECT * FROM new_manipulation_table;
+
+
+
+
+-- TRUNCATE
+TRUNCATE TABLE new_manipulation_table;

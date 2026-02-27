@@ -23,3 +23,8 @@ ALTER : Alter is used to change the schema of the table like add column, remove 
     5. RENAME TO : Use to rename, name of existing table
         ALTER TABLE table_name
         RENAME TO new_table_name;
+
+TRUNCATE : Truncate is used to delete the whole data of table but table will exist in DB
+           DROP TABLE is used to delete full table schema from DB
+
+           TRUNCATE TABLE table_name;
