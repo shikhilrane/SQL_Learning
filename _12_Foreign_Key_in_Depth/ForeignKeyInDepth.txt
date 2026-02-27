@@ -1,0 +1,15 @@
+Cascading for Foreign Key :
+    CASCADE : If you delete or change something in the main (parent) table, the related data in the connected (child) table will automatically delete or change too.
+
+    1. On DELETE Cascade :
+        When a row in the parent table is deleted,
+        the related rows in the child table are automatically deleted.
+        ON DELETE CASCADE
+
+    2. On UPDATE Cascade :
+        When the primary key value in the parent table is updated,
+        the related foreign key values in the child table are automatically updated.
+        ON UPDATE CASCADE
+
+    ON DELETE CASCADE deletes child rows automatically when parent row is deleted,
+    and ON UPDATE CASCADE updates child rows automatically when parent key is updated.
