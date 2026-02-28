@@ -1,0 +1,76 @@
+UNION :
+    1. UNION is used to combine the result set of two or more SELECT statements
+    2. Gives UNIQUE records.
+    3. To use it -
+        a. Every SELECT should have same no. of columns (i.e. Both tables should have same number of columns)
+        b. Columns must have similar data types.
+        c. Columns in every SELECT should be in the same order
+    4. Syntax :
+        SELECT column(s) FROM tableA
+        UNION
+        SELECT column(s) FROM tableB
+
+UNION ALL :
+    1. UNION ALL is used to combine result sets but it does NOT remove duplicates.
+    2. Syntax :
+        SELECT column(s) FROM tableA
+        UNION ALL
+        SELECT column(s) FROM tableB;
+
+Example Tables :
+
+    Table 1 : students_2023
+        +----+--------+
+        | id | name   |
+        +----+--------+
+        | 1  | Adam   |
+        | 2  | Bob    |
+        | 3  | Casey  |
+        +----+--------+
+
+    Table 2 : students_2024
+        +----+--------+
+        | id | name   |
+        +----+--------+
+        | 3  | Casey  |
+        | 4  | David  |
+        | 5  | Emma   |
+        +----+--------+
+
+
+UNION Example :
+    SELECT id, name FROM students_2023
+    UNION
+    SELECT id, name FROM students_2024;
+
+-------------------- Result (UNION) --------------------
+
+    +----+--------+
+    | id | name   |
+    +----+--------+
+    | 1  | Adam   |
+    | 2  | Bob    |
+    | 3  | Casey  |
+    | 4  | David  |
+    | 5  | Emma   |
+    +----+--------+
+
+
+
+UNION ALL Example :
+    SELECT id, name FROM students_2023
+    UNION ALL
+    SELECT id, name FROM students_2024;
+
+-------------------- Result (UNION ALL) --------------------
+
+    +----+--------+
+    | id | name   |
+    +----+--------+
+    | 1  | Adam   |
+    | 2  | Bob    |
+    | 3  | Casey  |
+    | 3  | Casey  |
+    | 4  | David  |
+    | 5  | Emma   |
+    +----+--------+
