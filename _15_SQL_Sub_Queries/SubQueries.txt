@@ -1,0 +1,15 @@
+SQL Sub Queries :
+    1. A Subquery or Inner Query or Nested Query is a query written inside another SQL query.
+    2. It usually involves two SELECT statements:
+        - Inner Query (Subquery)
+        - Outer Query
+    3. The inner query executes first, and its result is passed to the outer query.
+    4. Syntax :
+        SELECT column(s)
+        FROM table_name
+        WHERE column_name operator
+        (subquery);
+    5. Subqueries can be used in :
+        a. WHERE clause  → Most commonly used
+        b. FROM clause   → As a derived table (must use alias)
+        c. SELECT clause → As a scalar subquery
