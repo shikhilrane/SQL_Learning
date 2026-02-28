@@ -1,0 +1,27 @@
+INDEX :
+    1. Index is used to make searching data faster in a table.
+    2. It works like the index page of a book — you don’t read the whole book, you directly find the page number.
+    3. When we create an index on a column, MySQL creates a separate internal structure for that column.
+    4. This structure stores the values in sorted (ascending) order by default.
+    5. Because data is already sorted, database can find results quickly.
+    6. Index is mostly useful for columns used in WHERE, JOIN and ORDER BY.
+    7. Index makes SELECT faster but can slightly slow down INSERT, UPDATE and DELETE.
+    8. It is mainly useful for large tables.
+    9. Syntax :
+        CREATE INDEX index_name
+        ON table_name(column_name);
+
+    Example :
+        Run index command :
+            CREATE INDEX idx_name
+            ON students(name);
+        To see indexes :
+            SHOW INDEX FROM students;
+        To delete index :
+            DROP INDEX idx_name ON students;
+
+    Important Points :
+        - PRIMARY KEY automatically creates an index.
+        - UNIQUE column automatically creates an index.
+        - Index improves searching and filtering performance.
+        - It improves searching and filtering speed.
