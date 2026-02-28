@@ -1,0 +1,15 @@
+SQL VIEWS :
+    1. A View is a virtual table based on the result of a SQL query.
+    2. It does not store data physically; it stores only the query.
+    3. A View is used to simplify complex queries.
+    4. It can be used for security (restricting access to specific columns).
+    5. When the original table data changes, the View also reflects updated data.
+    Syntax :
+        CREATE VIEW view_name AS
+        SELECT column(s)
+        FROM table_name
+        WHERE condition;
+    To see view data :
+        SELECT * FROM view_name;
+    To delete a view :
+        DROP VIEW view_name;
