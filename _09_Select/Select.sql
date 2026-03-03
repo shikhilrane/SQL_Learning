@@ -44,7 +44,9 @@ VALUES
         SELECT * FROM students WHERE city IN ("Mumbai", "Delhi");
     -- 2.4 NOT IN Operator
         SELECT * FROM students WHERE city NOT IN ("Mumbai", "Delhi");
-
+    -- 2.5 LIKE
+        SELECT * FROM students WHERE city LIKE ("De%") -- It will return all the cities that contain at least "de" and after "de" there can be any characters
+        SELECT * FROM students WHERE city LIKE ("%De%") -- It will return all the cities that contain at least "de" and before and after "de" there can be any characters
 
 -- 3. LIMIT Clause
     SELECT * FROM students LIMIT 4;
@@ -66,6 +68,35 @@ VALUES
         SELECT SUM(marks) FROM students;
     -- 5. AVG()
         SELECT AVG(marks) FROM students;
+
+-- String Functions
+    -- 1. UPPER()
+        SELECT UPPER(name) FROM students;
+    -- 2. LOWER()
+        SELECT LOWER(name) FROM students;
+    -- 3. SUBSTRING()
+        SELECT SUBSTRING(name,1,3) FROM students;
+    -- 4. INSTR()
+        SELECT INSTR(name, 'A')
+        FROM students
+        WHERE name = 'Diana';   -- Use to find location of 'A' in name Diana
+    -- 5. LOCATE()
+        SELECT LOCATE('A', name, 4)
+        FROM students
+        WHERE name = 'Diana';   -- Use to find location of 'A' in name Diana from 4th character
+    -- 6. RTRIM()
+        SELECT RTRIM(name) FROM students; -- Removes Whitespaces from right if present
+    -- 7. LTRIM()
+        SELECT LTRIM(name) FROM students; -- Removes Whitespaces from left if present
+    -- 8. LENGTH()
+        SELECT name, LENGTH(name) FROM students;
+    -- 9. REPLACE()
+        SELECT REPLACE(name, 'a', 'A') FROM students;
+    -- 10. CONCAT()
+        SELECT CONCAT(name, ' ', city) AS NameAndCity FROM students;
+
+-- DISTINCT Keyword
+    SELECT DISTINCT(city) FROM students;
 
 -- 5. GROUP BY clause
     -- 1. Group by city
