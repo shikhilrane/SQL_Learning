@@ -144,37 +144,80 @@ FROM Title
 GROUP BY WORKER_TITLE
 HAVING COUNT(*) > 1;
 
--- Q-26. Write an SQL query to show only odd rows from a table.
+-- Q-26. Write an SQL query to show only odd rows from a table. (Show ODD rows)
 -- select * from worker where MOD (WORKER_ID, 2) != 0;
+-- From Modulus operator
+SELECT * FROM Worker
+WHERE WORKER_ID % 2 = 0;
+
+-- From MOD Function
+SELECT * FROM Worker
+WHERE MOD (WORKER_ID, 2) != 0;
 
 
--- Q-27. Write an SQL query to show only even rows from a table. 
+-- Q-27. Write an SQL query to show only even rows from a table. (Show EVEN rows)
+-- From Modulus operator
+SELECT * FROM Worker
+WHERE WORKER_ID % 2 = 1;
+
+-- From MOD Function
+SELECT * FROM Worker
+WHERE MOD (WORKER_ID, 2) != 0;
 
 
--- Q-28. Write an SQL query to clone a new table from another table.
+-- Q-28. Write an SQL query to clone a new table from another table. (Clone a table)
+CREATE TABLE Worker_Clone LIKE Worker;
+INSERT INTO Worker_Clone SELECT * FROM Worker;
+SELECT * FROM Worker_Clone;
 
+-- Q-29. Write an SQL query to fetch intersecting records of two tables. (Common Data between 2 tables, INNER JOIN)
+SELECT *
+FROM Worker
+INNER JOIN Worker_Clone
+ON Worker.WORKER_ID = Worker_Clone.WORKER_ID;
 
--- Q-29. Write an SQL query to fetch intersecting records of two tables.
-
-
--- Q-30. Write an SQL query to show records from one table that another table does not have.
+-- Q-30. Write an SQL query to show records from one table that another table does not have. (Left table completely and Right table where it intersects, LEFT JOIN (exclusive))
 -- MINUS
+SELECT Worker.*
+FROM Worker
+LEFT JOIN Worker_Clone
+ON Worker.WORKER_ID = Worker_Clone.WORKER_ID
+WHERE Worker_Clone.WORKER_ID IS NULL;
 
 
--- Q-31. Write an SQL query to show the current date and time.
+-- Q-31. Write an SQL query to show the current date and time. (Show current date and time)
 -- DUAL
+SELECT CURDATE();
+SELECT NOW();
 
 
--- Q-32. Write an SQL query to show the top n (say 5) records of a table order by descending salary.
+-- Q-32. Write an SQL query to show the top n (say 5) records of a table order by descending salary. (Show top 5 Highest salary holders in Descending order)
+SELECT * FROM Worker
+ORDER BY SALARY DESC
+LIMIT 5;
 
 
--- Q-33. Write an SQL query to determine the nth (say n=5) highest salary from a table.
+-- Q-33. Write an SQL query to determine the nth (say n=5) highest salary from a table. (Show 5th worker with highest salary)
+SELECT * FROM Worker
+ORDER BY SALARY DESC
+LIMIT 4,1;  -- Starts from 5th entry because we said start looking after 4th entry till length 1
 
 
--- Q-34. Write an SQL query to determine the 5th highest salary without using LIMIT keyword.
+-- Q-34. Write an SQL query to determine the 5th highest salary without using LIMIT keyword. (Show 5th worker with highest salary using sub queries)
+SELECT * FROM
+Worker AS w1
+WHERE 4 = (
+    SELECT COUNT(DISTINCT(w2.SALARY))
+    FROM Worker AS w2
+    WHERE w1.SALARY <= w2.SALARY
+);
 
  
--- Q-35. Write an SQL query to fetch the list of employees with the same salary.
+-- Q-35. Write an SQL query to fetch the list of employees with the same salary. ()
+SELECT *
+FROM Worker AS w1, Worker AS w2
+WHERE w1.SALARY = w2.SALARY
+AND w1.WORKER_ID != w2.WORKER_ID;
 
 
 -- Q-36. Write an SQL query to show the second highest salary from a table using sub-query.

@@ -28,6 +28,10 @@ VALUES
         SELECT * FROM students;
     -- 1.3. Select DISTINCT values
         SELECT DISTINCT grade FROM students;
+    -- 1.4. Select Current date;
+        SELECT CURDATE();
+    -- 1.5. Select Current date and time;
+        SELECT NOW();
 
 
 -- 2. WHERE Clause
@@ -50,6 +54,9 @@ VALUES
     -- 2.6 YEAR(), MONTH(), DAY()
         SELECT * FROM Worker
         WHERE YEAR(JOINING_DATE) = 2014 AND MONTH(JOINING_DATE) = 2 AND DAY(JOINING_DATE) = 20; -- This query is from another table because we don't have JOINING_DATE here
+    -- 2.7 MOD()
+        SELECT * FROM students
+        WHERE MOD(rollnumber, 2) = 0    -- It will return rows with even number as rollnumber and if we use != 0, then it will return rows with odd number as rollnumber
 
 -- 3. LIMIT Clause
     SELECT * FROM students LIMIT 4;
