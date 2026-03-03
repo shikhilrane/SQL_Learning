@@ -47,6 +47,9 @@ VALUES
     -- 2.5 LIKE
         SELECT * FROM students WHERE city LIKE ("De%") -- It will return all the cities that contain at least "de" and after "de" there can be any characters
         SELECT * FROM students WHERE city LIKE ("%De%") -- It will return all the cities that contain at least "de" and before and after "de" there can be any characters
+    -- 2.6 YEAR(), MONTH(), DAY()
+        SELECT * FROM Worker
+        WHERE YEAR(JOINING_DATE) = 2014 AND MONTH(JOINING_DATE) = 2 AND DAY(JOINING_DATE) = 20; -- This query is from another table because we don't have JOINING_DATE here
 
 -- 3. LIMIT Clause
     SELECT * FROM students LIMIT 4;
