@@ -213,26 +213,77 @@ WHERE 4 = (
 );
 
  
--- Q-35. Write an SQL query to fetch the list of employees with the same salary. ()
+-- Q-35. Write an SQL query to fetch the list of employees with the same salary. (Employee with same salary)
 SELECT *
 FROM Worker AS w1, Worker AS w2
 WHERE w1.SALARY = w2.SALARY
 AND w1.WORKER_ID != w2.WORKER_ID;
 
 
--- Q-36. Write an SQL query to show the second highest salary from a table using sub-query.
+-- Q-36. Write an SQL query to show the second highest salary from a table using sub-query. (Second highest salary from Worker table)
+-- Traditional way to write query
+SELECT FIRST_NAME, LAST_NAME, SALARY
+FROM Worker
+WHERE SALARY = (
+    SELECT MAX(SALARY)
+    FROM Worker
+    WHERE SALARY < (
+        SELECT MAX(SALARY)
+        FROM Worker
+    )
+);
+
+-- OR
+
+-- Using DENSE_RANK (Window Function, Modern way to write query)
+SELECT FIRST_NAME, LAST_NAME, SALARY
+FROM (
+    SELECT FIRST_NAME, LAST_NAME, SALARY,
+    DENSE_RANK() OVER (ORDER BY SALARY DESC) AS salary_rank
+    FROM Worker
+) t
+WHERE salary_rank = 7;
+
+-- Q-37. Write an SQL query to show one row twice in results from a table. (Return every row twice)
+SELECT * FROM Worker
+UNION ALL
+SELECT * FROM Worker
+ORDER BY WORKER_ID;
 
 
--- Q-37. Write an SQL query to show one row twice in results from a table.
+-- Q-38. Write an SQL query to list worker_id who does not get bonus. (Worker who has not received bonus)
+SELECT w.*, b.BONUS_AMOUNT
+FROM Worker As w
+LEFT JOIN Bonus as b
+ON w.WORKER_ID = b.WORKER_REF_ID
+WHERE b.WORKER_REF_ID IS NULL;
 
 
--- Q-38. Write an SQL query to list worker_id who does not get bonus.
+-- Q-39. Write an SQL query to fetch the first 50% records from a table. (Fetch first 50% of rows of Worker table)
+-- Direct writing (But MySQL doesn't allow direct subquery inside LIMIT)
+SELECT *
+FROM Worker
+ORDER BY WORKER_ID
+LIMIT FLOOR(
+    (SELECT COUNT(*) FROM Worker)/2
+);
+
+-- OR
+
+-- Using Variable
+SET @half = (SELECT FLOOR(COUNT(*)/2) FROM Worker);
+
+SELECT *
+FROM Worker
+ORDER BY WORKER_ID
+LIMIT @half;
 
 
--- Q-39. Write an SQL query to fetch the first 50% records from a table.
-
-
--- Q-40. Write an SQL query to fetch the departments that have less than 4 people in it.
+-- Q-40. Write an SQL query to fetch the departments that have less than 4 people in it. (Department in which number of workers are less than 4)
+SELECT Department, COUNT(*) as no_of_people
+FROM Worker
+GROUP BY Department
+HAVING no_of_people < 4;
 
 
 -- Q-41. Write an SQL query to show all departments along with the number of people in there.
